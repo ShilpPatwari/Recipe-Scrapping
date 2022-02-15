@@ -55,7 +55,7 @@ public void saveDataToExcel(ArrayList<Object[]> recipedata, String recipeName) t
 	    	}	    	
 	    }
 	      		    
-	     FileOutputStream fos = new FileOutputStream(new File("C:\\Users\\patwa\\Desktop\\"+recipeName+".xlsx"));
+	     FileOutputStream fos = new FileOutputStream(new File("C:\\Users\\patwa\\Selenium_Training\\RecipeHackathon1\\Excel\\"+recipeName+".xlsx"));
 	    	workbook.write(fos);
 	    	fos.close();
 	}

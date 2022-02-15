@@ -64,9 +64,8 @@ public class recipeStepss {
 						
 						e.printStackTrace();
 					}
-			//	System.out.println();
-				
-					for(int j=1; j<=2; j++) {
+			
+				  for(int j=1; j<=10; j++) {
 					
 				WebElement singlerecipe = driver.findElement(By.xpath("(//span[@class='rcc_recipename'])["+j+"]/a"));
 				title = singlerecipe.getText();

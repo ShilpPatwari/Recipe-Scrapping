@@ -28,8 +28,12 @@ public class recipeStepss {
     
 	
 	System.setProperty("webdriver.chrome.driver", "C:\\Users\\patwa\\Documents\\chromedriver.exe");
-	driver = new ChromeDriver();
-	driver.manage().window().maximize();
+	   
+	chromeOptions.setHeadless(true);
+	chromeOptions.addArguments("--headless");
+	chromeOptions.addArguments("window-size=1200x600");
+	driver = new ChromeDriver(chromeOptions);
+//	driver.manage().window().maximize();
 	
 	driver.get("https://www.tarladalal.com/");		
 	
@@ -51,7 +55,7 @@ public class recipeStepss {
 			int noofpages = driver.findElements(By.xpath("//a[@class='respglink']")).size();
 			    System.out.println("noofpages : "+noofpages);
 			    
-				for(int i=1; i<=2; i++) {
+				for(int i=1; i<=noofpages; i++) {
 					
 					 int noofrecipes = driver.findElements(By.xpath("//div[@class='rcc_rcpcore']")).size();
 					System.out.println("no of recipes :" + noofrecipes);
@@ -65,7 +69,11 @@ public class recipeStepss {
 						e.printStackTrace();
 					}
 			
-				  for(int j=1; j<=10; j++) {
+				  WebElement recipecards = driver.findElement(By.xpath("//div[@class='rcc_rcpcore']"));
+				  int cardcount = recipecards.findElements(By.xpath("//span[@class='rcc_recipename']/a")).size();
+				    System.out.println("cardcount :"+cardcount);
+				  
+					for(int j=1; j<=cardcount; j++) {
 					
 				WebElement singlerecipe = driver.findElement(By.xpath("(//span[@class='rcc_recipename'])["+j+"]/a"));
 				title = singlerecipe.getText();
